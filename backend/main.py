@@ -6,7 +6,17 @@ import os
 
 from rag_pipeline import create_vector_store, ask_question
 
+
 app = FastAPI()
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 DATA_PATH = "data"
 
